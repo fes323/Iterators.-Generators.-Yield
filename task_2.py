@@ -1,12 +1,11 @@
 import types
+#from pprint import pprint
 
 
 def flat_generator(list_of_lists):
-
-    ...
-    yield
-    ...
-
+    for _list in list_of_lists:
+        for item in _list:
+            yield item
 
 def test():
 
@@ -20,7 +19,8 @@ def test():
             flat_generator(list_of_lists_1),
             ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
     ):
-
+        #pprint(flat_iterator_item)
+        #pprint(check_item)
         assert flat_iterator_item == check_item
 
     assert list(flat_generator(list_of_lists_1)) == ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
